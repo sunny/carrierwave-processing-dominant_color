@@ -32,10 +32,10 @@ For example if you have the following model:
 class Article
   mount_uploader :photo, PhotoUploader
 end
-```ruby
+```
 
-You need to add a `dominant_color_photo` column to the `articles` table. You
-would then create a migration by executing:
+The you would need to add a `dominant_color_photo` column to the `articles` table.
+You could create a migration by executing:
 
 ```sh
 $ rails g migration AddDominantColorToArticles dominant_color_photo
