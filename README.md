@@ -1,4 +1,4 @@
-Carrierwave::Processing::DominantColor
+CarrierWave Processing DominantColor
 ======================================
 
 Adds the dominant color of an image to your database whenever you upload it
@@ -20,40 +20,40 @@ And then execute:
 $ bundle
 ```
 
-On your Rails model where you attach your uploader, you need a `dominant_color`
-attribute. Add it with a migration by replacing "Articles" with your model
-in the following command:
+Add the dominant color attribute
+--------------------------------
+
+On the Rails model where you attach your uploader, you need a `dominant_color=`
+attribute. Create a migration by replacing "Articles" with your table name in the
+following command:
 
 ```sh
 $ rails g migration AddDominantColorToArticles dominant_color
 $ rake db:migrate
 ```
 
-Create an initializer `config/initializers/dominant_color.rb`:
 
-```ruby
-require "carrierwave/processing/dominant_color"
-Miro.options[:color_count] = 1
-```
-
-
-Processing your uploader
-------------------------
+Add the processor in your uploader
+----------------------------------
 
 In your uploader, include the module and call the processor:
 
 ```ruby
 class PhotoUploader < CarrierWave::Uploader::Base
   include CarrierWave::Processing::DominantColor
-  …
+
   process :store_dominant_color
+
+  # …
 end
 ```
-If you have several versions of your uploader, I suggest adding it to the
-smallest version so that processing goes faster. For example:
+
+If you do any resizing or if you have several versions of your uploader,
+add it after you have resized the smallest version so that processing goes
+faster. For example:
 
 ```ruby
-…
+# …
 version :medium do
   process resize_to_fill: [200, 200]
 end
@@ -62,15 +62,14 @@ version :thumb, from_version: :medium do
   process resize_to_fill: [42, 42]
   process :store_dominant_color
 end
-…
-
+# …
 ```
 
 
 Using your dominant color
 -------------------------
 
-A good way of using your dominant color is to put it as a background to your
+An easy way of using your dominant colors is to put them as a background to your
 image tags:
 
 ```erb

@@ -5,7 +5,7 @@ require 'carrierwave/processing/dominant_color/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "carrierwave-processing-dominant_color"
-  spec.version       = Carrierwave::Processing::DominantColor::VERSION
+  spec.version       = CarrierWave::Processing::DominantColor::VERSION
   spec.authors       = ["Sunny Ripert"]
   spec.email         = ["sunny@sunfox.org"]
   spec.summary       = %q{Store the dominant color of an image with CarrierWave}
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
+  spec.add_runtime_dependency "miro"
 end

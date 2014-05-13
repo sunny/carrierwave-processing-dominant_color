@@ -1,4 +1,4 @@
-module Carrierwave
+module CarrierWave
   module Processing
     module DominantColor
       VERSION = "0.0.1"
