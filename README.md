@@ -23,12 +23,22 @@ $ bundle
 Add the dominant color attribute
 --------------------------------
 
-On the Rails model where you attach your uploader, you need a `dominant_color=`
-attribute. Create a migration by replacing "Articles" with your table name in the
-following command:
+To store the color, you need an attribute on the Rails model where you attach
+your uploader. Call it `dominant_color_{uploader}`.
+
+For example if you have the following model:
+
+```ruby
+class Article
+  mount_uploader :photo, PhotoUploader
+end
+```ruby
+
+You need to add a `dominant_color_photo` column to the `articles` table. You
+would then create a migration by executing:
 
 ```sh
-$ rails g migration AddDominantColorToArticles dominant_color
+$ rails g migration AddDominantColorToArticles dominant_color_photo
 $ rake db:migrate
 ```
 
@@ -73,7 +83,7 @@ An easy way of using your dominant colors is to put them as a background to your
 image tags:
 
 ```erb
-<%= image_tag(article.photo.url(:thumb), style: "background: #{article.dominant_color}") %>
+<%= image_tag(article.photo.url(:thumb), style: "background: #{article.dominant_color_photo}") %>
 ```
 
 For example, on [cults3d](http://cults3d.com):

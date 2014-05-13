@@ -7,8 +7,8 @@ module CarrierWave
   module Processing
     module DominantColor
       def store_dominant_color
-        color = Miro::DominantColors.new(current_path)
-        model.dominant_color = color.to_hex.first
+        colors = Miro::DominantColors.new(current_path).to_hex
+        model.send("dominant_color_#{mounted_as}=", colors.first)
       end
     end
   end
