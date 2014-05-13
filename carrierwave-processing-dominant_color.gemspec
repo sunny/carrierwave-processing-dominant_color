@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Carrierwave::Processing::DominantColor::VERSION
   spec.authors       = ["Sunny Ripert"]
   spec.email         = ["sunny@sunfox.org"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Store the dominant color of an image with CarrierWave}
+  spec.description   = %q{Store the dominant color of the images when you upload them to your Rails application using the CarrierWave gem.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
