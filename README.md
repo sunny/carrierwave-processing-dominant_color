@@ -76,6 +76,9 @@ image tags:
 <%= image_tag(article.photo.url(:thumb), style: "background: #{article.dominant_color}") %>
 ```
 
+For example, on [cults3d](http://cults3d.com):
+
+![Cults 3D Animated Screenshot with dominant colors during image load](doc/example-cults3d.gif)
 
 Contributing
 ------------
