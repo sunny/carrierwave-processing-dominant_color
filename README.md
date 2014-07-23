@@ -34,7 +34,7 @@ class Article
 end
 ```
 
-The you would need to add a `dominant_color_photo` column to the `articles` table.
+Then you would need to add a `dominant_color_photo` column to the `articles` table.
 You could create a migration by executing:
 
 ```sh
